@@ -1,8 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import quad_vec
-from isotonic_grad_descent import isotonic_grad_descent
-from heat_operator import heat_operator
+from src.isotonic_grad_descent import isotonic_grad_descent
+from src.heat_operator import heat_operator
 
 class heat_inv_problem:
     def __init__(self, a, x):
@@ -17,9 +17,9 @@ class heat_inv_problem:
 
         return self.g
 
-    def solve_task(self, alpha, tau):
+    def solve_task(self, alpha, tau, proj_type):
         u_init = np.zeros_like(self.x)
-        solver = isotonic_grad_descent(alpha, u_init, self.A, self.g, tau)
+        solver = isotonic_grad_descent(alpha, u_init, self.A, self.g, tau, proj_type)
         self.u = solver.start()
 
 

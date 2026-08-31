@@ -4,3 +4,6 @@ standart_grad_descent/__pycache__/heat_inv_problem.cpython-312.pyc
 isotonic_grad_descent/__pycache__/heat_inv_problem.cpython-312.pyc
 isotonic_grad_descent/__pycache__/heat_operator.cpython-312.pyc
 isotonic_grad_descent/__pycache__/isotonic_grad_descent.cpython-312.pyc
+src/__pycache__/heat_inv_problem.cpython-312.pyc
+src/__pycache__/heat_operator.cpython-312.pyc
+src/__pycache__/isotonic_grad_descent.cpython-312.pyc

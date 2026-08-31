@@ -1,5 +1,5 @@
 import numpy as np
-from heat_inv_problem import heat_inv_problem
+from src.heat_inv_problem import heat_inv_problem
 import matplotlib.pyplot as plt
 
 # Обратная задача теплопроводности
@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 def test_func(x):
     if x < 0:
         x = -x
-    return np.maximum(-x + 1, 0)
+    return np.exp(-x**2)
 
 a = 1.0
 T_ = [0.01, 0.1, 0.5, 1, 1.5]
@@ -27,5 +27,5 @@ u_0 = np.array([test_func(t) for t in x])
 problem = heat_inv_problem(a, x)
 for T in T_:
     problem.create_task(T, u_0)
-    problem.solve_task(alpha, tau)
-    problem.visualize_task([-4, 4], [-0.5, 1.5], f"std_line_T={T}")
+    problem.solve_task(alpha, tau, 'pava')
+    problem.visualize_task([0, 4], [-0.5, 1.5], f"std_line_T={T}")
