@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import quad_vec
-from src.isotonic_grad_descent import isotonic_grad_descent
+from src.grad_method.isotonic_grad_descent import isotonic_grad_descent
 from src.heat_operator import heat_operator
 
 class heat_inv_problem:

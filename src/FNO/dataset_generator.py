@@ -1,7 +1,9 @@
 import numpy as np
-# ---------------------------------------------------------
-# 1. Спектральный генератор обучающей выборки
-# ---------------------------------------------------------
+from src.heat_operator import heat_operator
+'''
+    Генератор обучающей выборки
+'''
+
 def generate_dataset(num_samples, num_points, L_max, T_min, T_max, a=1.0):
     """
     Генерирует пары (u0, phi) для обратной задачи теплопроводности.
@@ -31,17 +33,10 @@ def generate_dataset(num_samples, num_points, L_max, T_min, T_max, a=1.0):
             # Функция вида A * exp(-w*x**2) удовлетворяет условиям:
             u0 += A * np.exp(-w * x**2)
 
-        # Выбор случайного финального момента времени T
+        # Генерация случайного финального момента времени T
         T = np.random.uniform(T_min, T_max)
 
-        # Применение прямого теплового оператора A_T
-        u0_fft = np.fft.rfft(u0)
-        # Множитель в частотном пространстве
-        heat_symbol = np.exp(- (a**2) * (k**2) * T)
-        phi_fft = u0_fft * heat_symbol # все в частотах
-
-        # Обратное БПФ для получения phi(x)
-        phi = np.fft.irfft(phi_fft, n=num_points)
+        phi = heat_operator(a, T, x)(u0)
 
         u0_list.append(u0)
         phi_list.append(phi)

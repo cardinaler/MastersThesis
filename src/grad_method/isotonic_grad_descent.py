@@ -1,5 +1,5 @@
 import numpy as np
-from src.pava import pava
+from src.grad_method.pava import pava
 
 
 class isotonic_grad_descent:
