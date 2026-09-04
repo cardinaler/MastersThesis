@@ -2,7 +2,6 @@ import numpy as np
 from src.pava import pava
 
 
-
 class isotonic_grad_descent:
     """Класс для выполнения градиентного спуска с проекцией на каждом шаге
 
@@ -53,7 +52,6 @@ class isotonic_grad_descent:
                 u = u[:half_len]
                 u = pava(u)
                 if n % 2 == 0:
-                    # Для ЧЕТНОЙ длины (например, 6 элементов -> 3 и 3)
                     u = np.concatenate((u, np.flip(u)))
                 else:
                     center = u[half_len: half_len + 1]
