@@ -35,9 +35,9 @@ MasterThesis/
 Математическая формулировка задачи имеет следующий вид:
 $$
 \begin{aligned}
-        &u_t(x, t)= a^2u_{xx}(x, t) + f(x, t), \ \ x > 0, \ \ t > 0, \\
-        &u_x(0, t) = \gamma(t), \ \ t > 0,\\
-        &u(x, 0) = u_0(x), \ \ x >  0.
+        &u_t(x, t)= a^2u_{xx}(x, t) + f(x, t), \quad x > 0, \quad t > 0, \\
+        &u_x(0, t) = \gamma(t), \quad t > 0, \\
+        &u(x, 0) = u_0(x), \quad x >  0.
 \end{aligned}
 $$
 
@@ -46,10 +46,10 @@ $$
 
 $$
 \begin{aligned}
-        &u_t(x, t)= a^2u_{xx}(x, t) + f(x), \ \ x > 0, \ \ t > 0, \\
-        &u_x(0, t) = \gamma(t), \ \ t > 0,\\
-        &u(x, 0) = u_0(x), \ \ x > 0,\\
-        &u_t(x, T) = u_T(x), \ \ x > 0.
+        &u_t(x, t)= a^2u_{xx}(x, t) + f(x), \quad x > 0, \quad t > 0, \\
+        &u_x(0, t) = \gamma(t), \quad t > 0,\\
+        &u(x, 0) = u_0(x), \quad x > 0,\\
+        &u_t(x, T) = u_T(x), \quad x > 0.
 \end{aligned}
 $$
 Функция $u_T(x)$ задана. Таким образом, зная $\gamma(t), u_0(x), u_T(x)$, требуется восстановить $u(x, t)$ и $f(x)$.
