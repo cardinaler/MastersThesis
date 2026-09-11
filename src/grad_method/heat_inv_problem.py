@@ -28,16 +28,17 @@ class heat_inv_problem:
         
         plt.figure(figsize=(10, 7))
 
-        plt.plot(self.x, self.u_true, 'k', linewidth=3, label='True f(x)')
-        plt.plot(self.x, self.u, 'r--', linewidth=2, label='Restored f(x)')
+        plt.plot(self.x, self.u_true, label='Истинное $f(x)$', color='black', linewidth=2)
+        plt.plot(self.x, self.u, label='Предсказание grad', color='red', linestyle='dashed', linewidth=2)
+        plt.plot(self.x, self.g, label=f'Вход $\\varphi(x)$ (T={self.T:.2f})', color='blue', alpha=0.5)
 
         plt.xlim(x_lim)
-        plt.ylim(y_lim)
+        #plt.ylim(y_lim)
 
         plt.grid(True)
-        plt.xlabel('x')
-        plt.ylabel('f')
-        plt.title(f'График восстановленной и истинной f(x), полученой из $u_t(x, {self.T})$')
+        plt.title(f"Восстановление f(x) (T = {self.T:.2f})")
+        plt.xlabel("Координата x")
+        plt.ylabel("Температура")
         plt.legend()
         plt.savefig(f"{name}.pdf", bbox_inches='tight') # 'bbox_inches="tight"' removes extra whitespace
         plt.show()
