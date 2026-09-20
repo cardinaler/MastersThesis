@@ -2,7 +2,6 @@ import numpy as np
 from src.grad_method.heat_inv_problem import heat_inv_problem
 import matplotlib.pyplot as plt
 
-# Обратная задача теплопроводности
 
 # параметры задачи
 def test_func(x):

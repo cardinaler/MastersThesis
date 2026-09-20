@@ -18,7 +18,7 @@ class Config:
     weight_decay: float = 1e-4
     epochs: int = 50
 
-    # FNO Архитектура
+    # FNO 
     n_modes: tuple = (20,)
     hidden_channels: int = 64
     in_channels: int = 3   # phi(x), x, T
