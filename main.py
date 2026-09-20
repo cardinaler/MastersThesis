@@ -7,15 +7,16 @@ import matplotlib.pyplot as plt
 # параметры задачи
 def test_func(x):
 
-    return 2 * np.exp(-0.4 *(np.abs(x) - 3)**2) +  3 * np.exp(-0.5 *(np.abs(x) - 6)**2)
+    return  8 * np.exp(-5 *(np.abs(x) - 6)**2)
+ 
 
 a = 1.0
-T_ = [1.6]
+T_ = [2.5]
 alpha = 0
-tau = 1         
+tau = 2         
 
 # сетка
-N = 512
+N = 256
 L = 10.0
 
 x = np.linspace(-L, L, N)
@@ -27,4 +28,4 @@ problem = heat_inv_problem(a, x)
 for T in T_:
     problem.create_task(T, u_0)
     problem.solve_task(alpha, tau, 'non_negative')
-    problem.visualize_task([0, 10], [0.0, 3.0], f"grad_experiment_fx3")
+    problem.visualize_task([0, 10], [0.0, 3.0], f"grad_experiment_fx2")

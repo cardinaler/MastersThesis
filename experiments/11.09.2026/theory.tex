@@ -129,13 +129,81 @@ J[v] = \|A_T v - \varphi\|^2_{L_2},
 
 Для генерации обучающих данных используется два типа функций источников:
 
-1) Гауссианы вида $f(x) = A e^{\frac{(x - \mu)^2}{\sigma^2}}$, где параметры выбираются из равномерного распределения: $A \in [A_0, \  A_1], \ \sigma^2 \in [\sigma_0, \ \sigma_1], \ \mu \in [\mu_0, \ \mu_1]$.
+1) Гауссианы вида $f(x) = A e^{w(x - x_0)^2}$, где параметры выбираются из равномерного распределения: $A \in [1, \  5], \ w \in [0.1, \ 1], \ x_0 \in [3, \ 7]$.
 
-2) Сумма гауссиан: $f(x) = A_1 e^{\frac{(x - \mu_1)^2}{\sigma_1^2}} + A_2 e^{\frac{(x - \mu_2)^2}{\sigma_2^2}}$, параметры выбираются аналогичным образом.
+2) Сумма гауссиан: $f(x) = A_1 e^{w_1(x - x_{01})^2} + A_2 e^{w_2(x - x_{02})^2}$, параметры выбираются аналогичным образом.
 
-Тип функции выбирается случайным образом с равным шансом. Затем выбирается $T$ из равномерного распределения на отрезке $T \in [T_0, \ T_1]$. 
+Тип функции выбирается случайным образом с равным шансом. Затем выбирается $T$ из равномерного распределения на отрезке $T \in [0.1, \ 2]$. 
 
-Из полученных данных составляется оператор $A_T$ из уравнения (1) и затем вычисляется $\varphi(x) = A_T(f)(x)$.
-Всего генерируется $N$ элементов для обучающей выборки. 
+Из полученных данных составляется оператор $A_T$ из уравнения (1) и затем вычисляется $f(x) = A_T(\varphi)(x)$.
+Всего генерируется 5000 элементов для обучающей выборки. 
 
+\newpage
+\section{Результаты расчетов}
+Для каждого эксперимента выбирается $f(x), \ x > 0$ и некоторое $T$ по ним вычисляется $\varphi(x) = A_T(f)(x)$ и затем составляется обратная задача по восстановлению $f(x)$.
+В каждом примере будет приведен результат работы оператора FNO и классического градиентного метода. В качестве примеров выбраны данные не из обучающей выборки, но класс функций все тот же.
+Постановка задачи
+\begin{align*}
+        &u_t(x, t)= u_{xx}(x, t) + f(x), \ \ x  > 0, \ \ t > 0, \\
+        &u_x(0, t) = 0, \ \ t > 0,\\
+        &u(x, 0) = 0, \ \ x > 0,\\
+        &u_t(x, T) = \varphi(x), \ \ x > 0,
+\end{align*}
+
+\newpage
+\subsection{Пример 1}
+$f(x) = A e^{-w (x - x_0)^2}$, где $A = 2, \ w = 0.4, \ x_0 = 3$.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]{experiment_fx1.pdf} 
+    % width можно регулировать (например, 0.5\textwidth, или указать в см: width=10cm)
+    \caption{FNO}
+    \label{fig:fx1}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]{grad_experiment_fx1.pdf} 
+    % width можно регулировать (например, 0.5\textwidth, или указать в см: width=10cm)
+    \caption{Градиентный метод}
+    \label{fig:fx1}
+\end{figure}
+
+\newpage
+\subsection{Пример 2}
+$f(x) = A e^{-w (x - x_0)^2}$, где $A = 3, \ w = 0.5, \ x_0 = 6$.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]{experiment_fx2.pdf} 
+    % width можно регулировать (например, 0.5\textwidth, или указать в см: width=10cm)
+    \caption{FNO}
+    \label{fig:fx1}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]{grad_experiment_fx2.pdf} 
+    % width можно регулировать (например, 0.5\textwidth, или указать в см: width=10cm)
+    \caption{Градиентный метод}
+    \label{fig:fx1}
+\end{figure}
+
+\newpage
+\subsection{Пример 3}
+$f(x) = f_1(x) + f_2(x)$, где $f_1(x)$ - это функция из примера 1, а $f_2(x)$ из примера 2.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]{experiment_fx3.pdf} 
+    % width можно регулировать (например, 0.5\textwidth, или указать в см: width=10cm)
+    \caption{FNO}
+    \label{fig:fx1}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]{grad_experiment_fx3.pdf} 
+    % width можно регулировать (например, 0.5\textwidth, или указать в см: width=10cm)
+    \caption{Градиентный метод}
+    \label{fig:fx1}
+\end{figure}
 \end{document}

@@ -12,3 +12,5 @@ src/grad_method/__pycache__/isotonic_grad_descent.cpython-311.pyc
 src/grad_method/__pycache__/pava.cpython-311.pyc
 src/grad_method/__pycache__/heat_inv_problem.cpython-311.pyc
 src/__pycache__/heat_operator.cpython-311.pyc
+experiments/11.09.2026/theory.synctex.gz
+experiments/20.09.2026/results.synctex.gz
