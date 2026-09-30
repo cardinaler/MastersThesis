@@ -1,4 +1,4 @@
-from config import Config
+from src.FNO.config import Config
 import torch
 import torch.nn as nn
 from neuralop.models import FNO

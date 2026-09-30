@@ -7,10 +7,10 @@ class heat_operator:
         self.a = a
         self.T = T
         self.x = x
-    
+
     def __call__(self, u):
         return self.heat_forward(u, self.a, self.T, self.x)
-    
+
     def heat_forward(self, u0, a, T, x):
         dx = x[1] - x[0]
         N = len(x)
@@ -23,4 +23,3 @@ class heat_operator:
 
         return np.fft.irfft(y_hat, n=N)
 
-    

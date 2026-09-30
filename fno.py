@@ -1,18 +1,19 @@
 import torch
+import matplotlib.pyplot as plt
 from src.FNO.config import Config
 from src.FNO.dataset_generator import prepare_dataloaders
 from src.FNO.trainer import create_model, train_fno
 
 
+
 cfg = Config()
 print(f"Используется устройство: {cfg.device}")
 
-print("Генерация обучающей выборки.")
 train_loader, test_loader, x_grid, input_tensor, target_tensor, train_size = prepare_dataloaders(
     cfg)
 
 model = create_model(cfg)
-print("Старт обучения")
+
 model = train_fno(model, train_loader, test_loader, cfg)
 
 model.eval()

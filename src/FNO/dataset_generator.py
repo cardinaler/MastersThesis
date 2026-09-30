@@ -2,7 +2,7 @@ import numpy as np
 import torch
 from src.heat_operator import heat_operator
 from torch.utils.data import TensorDataset, DataLoader
-from config import Config
+from src.FNO.config import Config
 
 '''
     Генератор обучающей выборки
@@ -25,7 +25,7 @@ def generate_dataset(num_samples, num_points, L_max, T_min, T_max, a=1.0):
 
     for _ in range(num_samples):
         
-        u0 = np.full(num_points, 0)
+        u0 = np.full(num_points, 0.0)
 
         num_components = 1
         for _ in range(num_components):

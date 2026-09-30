@@ -14,3 +14,10 @@ src/grad_method/__pycache__/heat_inv_problem.cpython-311.pyc
 src/__pycache__/heat_operator.cpython-311.pyc
 experiments/11.09.2026/theory.synctex.gz
 experiments/20.09.2026/results.synctex.gz
+src/grad_method/__pycache__/pava.cpython-310.pyc
+src/grad_method/__pycache__/isotonic_grad_descent.cpython-310.pyc
+src/grad_method/__pycache__/heat_inv_problem.cpython-310.pyc
+src/FNO/__pycache__/trainer.cpython-310.pyc
+src/FNO/__pycache__/dataset_generator.cpython-310.pyc
+src/FNO/__pycache__/config.cpython-310.pyc
+src/__pycache__/heat_operator.cpython-310.pyc
