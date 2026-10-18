@@ -5,7 +5,7 @@ import torch
 @dataclass
 class Config:
     # Параметры генерации данных
-    num_samples: int = 100
+    num_samples: int = 10000
     num_points: int = 256
     l_max: float = 10.0
     t_min: float = 0.1

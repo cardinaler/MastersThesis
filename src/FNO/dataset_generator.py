@@ -13,10 +13,11 @@ def generate_dataset(num_samples, num_points, L_max, T_min, T_max, a=1.0):
     Генерирует пары (u0, phi) для обратной задачи теплопроводности.
     Использует БПФ, чтобы описать оператор A_T.
     """
+    # Пространственная сетка [-L_max, L_max)
     x = np.linspace(-L_max, L_max, num_points, endpoint=False)
     dx = x[1] - x[0]
 
-    # волновые числа для БПФ
+    # Волновые числа для БПФ
     k = np.fft.rfftfreq(num_points, d=dx) * 2 * np.pi
 
     u0_list = []
@@ -24,16 +25,19 @@ def generate_dataset(num_samples, num_points, L_max, T_min, T_max, a=1.0):
     T_list = []
 
     for _ in range(num_samples):
-        
+        # Генерация u0(x)
+
         u0 = np.full(num_points, 0.0)
 
-        num_components = 1
+        # Пока u0 это 1 функция вида гауссианы
+        num_components = np.random.randint(1, 3)
         for _ in range(num_components):
-            A = np.random.uniform(1, 5)
-            w = np.random.uniform(0.1, 1.0)
-            u0 += A * np.exp(-w * x**2)
+            A = np.random.uniform(1, 10.0)
+            w = np.random.uniform(1, 6)
+            x0 = np.random.uniform(3.0, 7.0)
+            u0 += A * np.exp(-w * (np.abs(x) - x0)**2)
 
-        # генерация случайного финального момента времени T
+        # Генерация случайного финального момента времени T
         T = np.random.uniform(T_min, T_max)
 
         phi = heat_operator(a, T, x)(u0)
